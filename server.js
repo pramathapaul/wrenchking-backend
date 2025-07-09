@@ -11,7 +11,7 @@ const app = express();
 // ✅ CORS Configuration
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://your-netlify-site.netlify.app',
+  'https://thewrenchking.netlify.app',
 ];
 app.use(cors({ origin: allowedOrigins }));
 
