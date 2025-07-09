@@ -7,11 +7,19 @@ import bikeRoutes from './routes/bikeRoutes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS Configuration
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://your-netlify-site.netlify.app',
+];
+app.use(cors({ origin: allowedOrigins }));
+
 app.use(express.json());
 
 app.use('/api/bikes', bikeRoutes);
 
+// ✅ MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
